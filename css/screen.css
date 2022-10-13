@@ -20,6 +20,8 @@
 
     /* opacity */
 
+    --global-opacity-muted: 0.8;
+
     /* transitions */
 }
 
@@ -236,7 +238,11 @@ input::placeholder {
 */
 
 .c-logo {
-
+    font-size: 1rem;
+    line-height: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /*
@@ -246,11 +252,17 @@ input::placeholder {
 */
 
 .c-sun {
-
+    width: 22px;
+    height: 22px;
+    fill: var(--global-color-front);
+    display: flex;
 }
 
 .c-logo .c-sun {
-
+    width: 22px;
+    height: 22px;
+    fill: var(--global-color-front);
+    display: flex;
 }
 
 /*
@@ -273,11 +285,10 @@ input::placeholder {
     flex-direction: column;
     justify-content: flex-end;
     margin: 0 auto;
-
 }
 
 
-.c-app_summary{
+.c-app__summary{
     font-size: 1.75rem;
     line-height: 2.5rem;
 }
@@ -287,7 +298,58 @@ input::placeholder {
     Component: Horizon
     ---
     Horizon with sun visualisation
+
 */
+
+.c-horizon{
+    margin-bottom: 2.125rem;;
+}
+
+
+.c-horizon__line{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--global-color-front);
+    padding-top: 0.5rem;
+}
+
+
+.c-horizon__time{
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+}
+
+.c-horizon__sun {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+}
+
+.c-horizon__sun::before{
+    /* Gebruikt de value uit het date-time attribuut */
+    content: attr(data-time);
+    display: block;
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+}
+
+
+.c-horizon__sky{
+    position: relative;
+    height: 100%;
+}
+
+.c-horizon__sky-wrapper{
+    position: relative;
+    height: 200px; 
+    overflow: hidden;
+}
+
 
 /*------------------------------------*\
 #UTILITIES
@@ -297,6 +359,12 @@ input::placeholder {
     Utilities: Mute
     Mute with opacity
 */
+
+.u-muted{
+    opacity: var(--global-opacity-muted);
+}
+
+
 
 /*------------------------------------*\
 #STATES
