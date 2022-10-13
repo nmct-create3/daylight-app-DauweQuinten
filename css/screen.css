@@ -42,8 +42,8 @@ html {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--global-color-back);
-    color: var(--global-color-front);
+    background-color: var(--color-back, var(--global-color-back));
+    color: var(--color-front, var(--global-color-front));
 
 }
 
@@ -243,6 +243,8 @@ input::placeholder {
     display: flex;
     align-items: center;
     gap: 8px;
+    /* holds the logo at the top */
+    margin-bottom: auto;
 }
 
 /*
@@ -254,14 +256,14 @@ input::placeholder {
 .c-sun {
     width: 22px;
     height: 22px;
-    fill: var(--global-color-front);
+    fill: var(--color-front, var(--global-color-front));
     display: flex;
 }
 
 .c-logo .c-sun {
     width: 22px;
     height: 22px;
-    fill: var(--global-color-front);
+    fill: var(--color-front, var(--global-color-front));
     display: flex;
 }
 
@@ -378,6 +380,14 @@ input::placeholder {
 */
 
 /* Night version: just switch the light and dark vars */
+
+.is-night{
+ --color-front: var(--global-color-light);
+ --color-back: var(--global-color-dark);
+}
+
+
+
 
 /*------------------------------------*\
 #MEDIA

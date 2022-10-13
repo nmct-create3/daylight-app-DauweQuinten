@@ -45,10 +45,22 @@ const getData = (endpoint) => {
 };
 
 // 2 Aan de hand van een longitude en latitude gaan we de yahoo wheater API ophalen.
-let getAPI = (lat, lon) => {
-  // Eerst bouwen we onze url op
-  // Met de fetch API proberen we de data op te halen.
-  // Als dat gelukt is, gaan we naar onze showResult functie.
+// let getAPI = (lat, lon) => {
+// Eerst bouwen we onze url op
+// Met de fetch API proberen we de data op te halen.
+// Als dat gelukt is, gaan we naar onze showResult functie.
+// };
+
+// Get endpoint
+let getEndpoint = (lat, lon) => {
+  // klopt dit?
+  return `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lon}&formatted=0`;
+};
+
+let getAPI = async (lat, lon, callback) => {
+  const data = await getData(getEndpoint(lat, lon));
+  console.log(data);
+  return data;
 };
 
 document.addEventListener('DOMContentLoaded', function () {
